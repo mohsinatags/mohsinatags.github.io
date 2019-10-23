@@ -4,7 +4,7 @@ var express = require('express'),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
-
+app.set('views', __dirname);
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
@@ -12,12 +12,59 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8000,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 
-app.get('/', function (req, res) {
+app.get('/favicon.ico', function (req, res) {
 
-		res.render('index.html', { pageCountMessage : null});
+		res.render('favicon.ico');
 });
 
+app.get('/inline.bundle.js', function (req, res) {
 
+		res.render('inline.bundle.js');
+});
+
+app.get('/inline.bundle.js.map', function (req, res) {
+
+		res.render('inline.bundle.js.map');
+});
+
+app.get('/main.bundle.js', function (req, res) {
+
+		res.render('main.bundle.js');
+});
+
+app.get('/main.bundle.js.map', function (req, res) {
+
+		res.render('main.bundle.js.map');
+});
+
+app.get('/polyfills.bundle.js', function (req, res) {
+
+		res.render('polyfills.bundle.js');
+});
+
+app.get('/polyfills.bundle.js.map', function (req, res) {
+
+		res.render('polyfills.bundle.js.map');
+});
+
+app.get('/styles.bundle.js', function (req, res) {
+
+		res.render('styles.bundle.js');
+});
+
+app.get('/styles.bundle.js.map', function (req, res) {
+
+		res.render('styles.bundle.js.map');
+});
+
+app.get('/vendor.bundle.js', function (req, res) {
+
+		res.render('vendor.bundle.js');
+});
+app.get('/vendor.bundle.js.map', function (req, res) {
+
+		res.render('vendor.bundle.js.map');
+});
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
