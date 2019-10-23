@@ -4,7 +4,6 @@ var express = require('express'),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
-app.set('views', __dirname);
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
@@ -12,6 +11,10 @@ app.use(morgan('combined'))
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8000,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
+app.get('/', function (req, res) {
+
+		res.render('index.html');
+});
 
 app.get('/favicon.ico', function (req, res) {
 
