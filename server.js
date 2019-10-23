@@ -16,7 +16,7 @@ app.get('/', function (req, res) {
 
 		res.render('index.html');
 });
-/*
+
 app.get('/favicon.ico', function (req, res) {
 
 		res.render('favicon.ico');
@@ -70,7 +70,7 @@ app.get('/vendor.bundle.js.map', function (req, res) {
 
 		res.render('vendor.bundle.js.map');
 });
-*/
+
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
