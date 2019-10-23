@@ -4,7 +4,7 @@ var express = require('express'),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', __dirname);
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
