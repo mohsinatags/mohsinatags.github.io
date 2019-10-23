@@ -4,7 +4,7 @@ var express = require('express'),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
-
+app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
@@ -14,7 +14,7 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 
 app.get('/', function (req, res) {
 
-		res.render('index', { pageCountMessage : null});
+		res.render('index.html', { pageCountMessage : null});
 });
 
 
